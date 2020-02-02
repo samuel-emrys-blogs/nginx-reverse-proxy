@@ -308,7 +308,7 @@ server {
 
         location / {
                 include snippets/proxy-params.conf;
-                proxy_pass https://192.168.0.10;
+                proxy_pass http://192.168.0.10;
         }
 }
 ```
@@ -335,7 +335,7 @@ These statement import the directives contained in the files we created earlier,
 ```
 location / {
         include snippets/proxy-params.conf;
-        proxy_pass https://192.168.0.10;
+        proxy_pass http://192.168.0.10;
 }
 ```
 The location block is specific to the requested URI. In this case, the URI in question is `/`, the root. This means, that when the URL `https://cloud.example.com` is requested, this location directive is what's executed. The include statement does the same thing as the snippets above; imports the directives contained in `/usr/local/etc/nginx/snippets/proxy-params.conf` that we created earlier. The `proxy_pass` statement is what redirects the request to the subdomain server. In this case, this is where the IP of the Nextcloud jail would go.
